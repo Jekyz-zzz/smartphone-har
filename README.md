@@ -23,3 +23,31 @@ Semua pengulangan memakai seed 42, 7, 123, 2024, dan 99, dan determinisme Tensor
 
 ## Sumber data
 Kwapisz, J. R., Weiss, G. M., & Moore, S. A. (2010). Activity recognition using cell phone accelerometers. SensorKDD-10, Washington DC.
+
+## Hasil
+
+Rata-rata ± simpangan baku dari 5 seed pada data test (6 subjek). SVM bersifat deterministik sehingga hasilnya sama di semua seed.
+
+| Model | Masukan | Accuracy | Macro-F1 | Waktu latih (s) | Inferensi (ms/sampel) |
+|---|---|---|---|---|---|
+| SVM (RBF) | 79 fitur manual | 0.8745 | 0.8395 | 0.87 ± 0.02 | 0.2267 ± 0.0089 |
+| Random Forest | 79 fitur manual | 0.9031 ± 0.0081 | 0.8359 ± 0.0179 | 21.19 ± 2.50 | 0.0888 ± 0.0003 |
+| 1D-CNN | Segmen sinyal 128 × 3 | 0.8511 ± 0.0518 | 0.8061 ± 0.0567 | 48.32 ± 11.89 | 0.2429 ± 0.0079 |
+
+SVM dan Random Forest dilatih di CPU (2 core), 1D-CNN di GPU Tesla T4. Waktu inferensi diukur di CPU, dan untuk SVM serta Random Forest sudah termasuk ekstraksi fitur.
+
+## Rekap hasil
+
+Rekap lengkap per seed, per kelas, ablasi kelompok fitur, dan tuning hyperparameter ada di [results/Rekap Hasil_Kelompok Suki L.xlsx](results/Rekap%20Hasil_Kelompok%20Suki%20L.xlsx). Confusion matrix dan kurva loss ada di folder [results/figures](results/figures).
+
+## Tim
+
+Kelompok Suki L, mata kuliah Pengenalan Pola, Teknik Informatika, Fakultas Ilmu Komputer, Universitas Sriwijaya (2026).
+
+- Muhammad Zahy Riza
+- Rahmat Hedo Alfikri
+- Wahyu Pratama
+
+## Lisensi
+
+MIT, lihat [LICENSE](LICENSE).
